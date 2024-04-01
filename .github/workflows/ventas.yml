@@ -1,27 +1,30 @@
-name: remote_ssh_command_ventas_qa
+name: remote_ssh_command_ventas
 
 on:
   workflow_dispatch:
 
 jobs:
   build:
-    name: Build and Publish
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.QA_PRUEBA_HOST }}
-          username: ${{ secrets.QA_PRUEBA_USER }}
-          key: ${{ secrets.QA_PRUEBA_SSH }}
+          username: ${{ secrets.QA_PRUEBA_USER  }}
+          key: ${{ secrets.QA_PRUEBA_SSH  }}
           script: |
-             sudo apt update
-             sudo apt install -y nodejs npm git
-             sudo rm -rf /opt/Ventas_qa
-             sudo mkdir -p /opt/Ventas_qa
-             cd /opt/Ventas_qa
-             sudo git clone https://${{ secrets.GB_TOKEN }}@github.com/rijmjada/sprint-2 .
-             echo 'FROM node:latest\n\nWORKDIR /app\n\nCOPY . .\n\nRUN npm install\n\nEXPOSE 3000\n\nCMD ["npm", "start"]' | sudo tee Dockerfile
-             sudo snap install docker
-             sudo docker build -t nombre_de_tu_imagen .
-             sudo docker run -d -p 3000:3000 nombre_de_tu_imagen
+            sudo yum update -y
+            sudo yum install -y nodejs npm git
+            sudo yum install -y yum-utils \
+                device-mapper-persistent-data \
+                lvm2
+            sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+            sudo yum install docker-ce docker-ce-cli containerd.io
+            sudo systemctl start docker
+            sudo systemctl enable docker
+            sudo rm -rf /opt/ventasqa
+            sudo mkdir -p /opt/ventasqa
+            cd /opt/ventasqa
+            sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
