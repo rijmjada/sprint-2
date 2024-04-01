@@ -24,6 +24,6 @@ jobs:
           
       - name: Crear Dockerfile
         run: |
-          sudo echo -e 'FROM alpine:latest\n\nRUN apk --no-cache add nodejs npm\n\nWORKDIR /app\n\nCOPY . .\n\nRUN npm install\n\nCMD ["npm", "start"]' > /opt/ventas-qa/Dockerfile
+          sudo echo -e 'FROM alpine:latest\n\nRUN apk --no-cache add nodejs npm\n\nWORKDIR /app\n\nCOPY . .\n\nRUN npm install\n\nCMD ["npm", "start"]' | sudo tee /opt/ventas-qa/Dockerfile > /dev/null
           sudo chmod 644 /opt/ventas-qa/Dockerfile
         working-directory: /opt/ventas-qa
