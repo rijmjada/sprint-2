@@ -21,4 +21,4 @@ jobs:
             sudo mkdir -p /opt/ventasqa
             cd /opt/ventasqa
             sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
-            sudo echo -e 'FROM ubuntu:latest\n\nRUN apt update -y && \\\n    apt install -y \\\n    nodejs \\\n    npm \\\n    git \\\n    && apt clean all\n\nWORKDIR /opt/ventasqa\n\nCOPY . .\n\nEXPOSE 3000\n\nCMD ["npm", "start"]' > Dockerfile
+            echo -e 'FROM alpine:latest\n\nRUN apk --no-cache add nodejs npm\n\nWORKDIR /app\n\nCOPY . .\n\nRUN npm install\n\nCMD ["npm", "start"]' > Dockerfile
