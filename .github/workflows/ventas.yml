@@ -12,7 +12,7 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.QA_PRUEBA_HOST }}
-          username: ${{ secrets.USER_VENTAS }}
+          username: ${{ secrets.QA_PRUEBA_USER  }}
           key: ${{ secrets.QA_PRUEBA_SSH }}
           script: |
              sudo yum update -y
