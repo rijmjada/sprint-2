@@ -13,9 +13,9 @@ jobs:
         run: |
           sudo yum update -y
           sudo yum install -y git
-          sudo rm -rf /opt/ventasqa
-          sudo mkdir -p /opt/ventasqa
-          cd /opt/ventasqa
+          sudo rm -rf /opt/ventas_qa
+          sudo mkdir -p /opt/ventas_qa
+          cd /opt/ventas_qa
           sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
           
       - name: Crear Dockerfile
