@@ -16,7 +16,7 @@ jobs:
           key: ${{ secrets.QA_PRUEBA_SSH }}
           script: |
             sudo yum update -y
-            sudo yum install -y nodejs npm git
+            sudo yum install -y nodejs npm git docker
             sudo rm -rf /opt/ventas-qa
             sudo mkdir -p /opt/ventas-qa
             cd /opt/ventas-qa
