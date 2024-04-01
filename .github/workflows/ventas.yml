@@ -12,22 +12,15 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.QA_PRUEBA_HOST }}
-          username: ${{ secrets.QA_PRUEBA_USER  }}
+          username: ${{ secrets.QA_PRUEBA_USER }}
           key: ${{ secrets.QA_PRUEBA_SSH }}
           script: |
-             sudo yum update -y
-             sudo yum install -y nodejs npm git
+             sudo apt update
+             sudo apt install -y nodejs npm git
              sudo rm -rf /opt/Ventas_qa
              sudo mkdir -p /opt/Ventas_qa
              cd /opt/Ventas_qa
              sudo git clone https://${{ secrets.GB_TOKEN }}@github.com/alkemyTech/UMSA-DevOps-T4 .
+             sudo snap install docker
 
-      - name: Generate Dockerfile
-        uses: docker/setup-buildx-action@v1
-        with:
-          dockerfile: Dockerfile
-          context: .  # Specify the context for the Dockerfile generation, assuming it's the root of the project
-
-      - name: Print Dockerfile content
-        run: |
-          cat Dockerfile
+      
