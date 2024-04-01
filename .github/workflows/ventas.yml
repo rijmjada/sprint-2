@@ -22,4 +22,8 @@ jobs:
             cd /opt/ventas-qa
             sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
           
-      
+      - name: Crear Dockerfile
+        run: |
+          sudo echo -e 'FROM alpine:latest\n\nRUN apk --no-cache add nodejs npm\n\nWORKDIR /app\n\nCOPY . .\n\nRUN npm install\n\nCMD ["npm", "start"]' > /opt/ventas-qa/Dockerfile
+          sudo chmod 644 /opt/ventas-qa/Dockerfile
+        working-directory: /opt/ventas-qa
