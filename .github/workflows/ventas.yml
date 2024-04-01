@@ -12,8 +12,8 @@ jobs:
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.QA_PRUEBA_HOST }}
-          username: ${{ secrets.QA_PRUEBA_USER  }}
-          key: ${{ secrets.QA_PRUEBA_SSH  }}
+          username: ${{ secrets.QA_PRUEBA_USER }}
+          key: ${{ secrets.QA_PRUEBA_SSH }}
           script: |
             sudo yum update -y
             sudo yum install -y nodejs npm git docker
@@ -21,3 +21,4 @@ jobs:
             sudo mkdir -p /opt/ventasqa
             cd /opt/ventasqa
             sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
+            sudo echo -e 'FROM centos:latest\n\nRUN yum update -y && \\\n    yum install -y \\\n    yum-utils \\\n    device-mapper-persistent-data \\\n    lvm2 \\\n    git \\\n    nodejs \\\n    npm \\\n    && yum clean all\n\nWORKDIR /opt/ventasqa\n\nCOPY . .\n\nEXPOSE 3000\n\nCMD ["npm", "start"]' > Dockerfile
