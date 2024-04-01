@@ -9,7 +9,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Clonar repositorio
-        id: clone_repo
         run: |
           sudo yum update -y
           sudo yum install -y git
@@ -17,9 +16,14 @@ jobs:
           sudo mkdir -p /opt/ventas-qa
           cd /opt/ventas-qa
           sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
+      
+      - name: Esperar finalización de la clonación
+        run: |
+          while [ ! -d "/opt/ventas-qa" ]; do sleep 5; done
+          echo "La clonación del repositorio ha finalizado."
+      
       - name: Crear Dockerfile
         run: |
           sudo echo -e 'FROM alpine:latest\n\nRUN apk --no-cache add nodejs npm\n\nWORKDIR /app\n\nCOPY . .\n\nRUN npm install\n\nCMD ["npm", "start"]' | sudo tee /opt/ventas-qa/Dockerfile > /dev/null
           sudo chmod 644 /opt/ventas-qa/Dockerfile
         working-directory: /opt/ventas-qa
-        needs: clone_repo
