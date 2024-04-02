@@ -24,6 +24,7 @@ jobs:
 
       - name: Construir imagen Docker
         run: |
+          sudo systemctl start docker
           sudo docker build -t ventas-qa .
         working-directory: /opt/ventas-qa
 
