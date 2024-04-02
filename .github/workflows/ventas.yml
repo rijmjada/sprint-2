@@ -23,6 +23,9 @@ jobs:
             sudo mkdir -p /opt/ventas-qa
             cd /opt/ventas-qa
             sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
+            
+            # Verificar si existe un contenedor con el mismo nombre y eliminarlo si es así
+            sudo docker rm -f ventas_container || true
+            
             sudo docker pull diego1986/qa_ventas_diego_ormeno:latest
             sudo docker run -d --name ventas_container diego1986/qa_ventas_diego_ormeno:latest
-
