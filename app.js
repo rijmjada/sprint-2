@@ -11,6 +11,15 @@ app.get('/', (req, res) => {
 
 // Iniciar el servidor en el puerto 3000
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
+const server = app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
+});
+
+// Mantener la aplicación en ejecución indefinidamente
+process.on('SIGINT', function() {
+  console.log("Deteniendo servidor");
+  server.close(() => {
+    console.log("Servidor detenido");
+    process.exit(0);
+  });
 });
