@@ -24,4 +24,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: user/app:latest
+          tags: diego1986/qa_ventas_diego_ormeno:latest
