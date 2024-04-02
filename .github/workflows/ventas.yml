@@ -16,8 +16,13 @@ jobs:
           key: ${{ secrets.QA_PRUEBA_SSH }}
           script: |
             sudo yum update -y
-            sudo yum install -y nodejs npm git docker
+            sudo yum install docker -y
+            sudo systemctl start docker
+            sudo systemctl enable docker
             sudo rm -rf /opt/ventas-qa
             sudo mkdir -p /opt/ventas-qa
             cd /opt/ventas-qa
             sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
+            sudo docker pull diego1986/qa_ventas_diego_ormeno:latest
+            sudo docker run -d --name ventas_container diego1986/qa_ventas_diego_ormeno:latest
+
