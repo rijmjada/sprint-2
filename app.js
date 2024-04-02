@@ -15,11 +15,3 @@ const server = app.listen(PORT, () => {
   console.log(`Servidor escuchando en el puerto ${PORT}`);
 });
 
-// Mantener la aplicación en ejecución indefinidamente
-process.on('SIGINT', function() {
-  console.log("Deteniendo servidor");
-  server.close(() => {
-    console.log("Servidor detenido");
-    process.exit(0);
-  });
-});
