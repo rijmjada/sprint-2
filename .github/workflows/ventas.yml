@@ -28,4 +28,4 @@ jobs:
             sudo docker rm -f ventas_container || true
             
             sudo docker pull diego1986/qa_ventas_diego_ormeno:latest
-            sudo docker run -d --name ventas_container diego1986/qa_ventas_diego_ormeno:latest
+            sudo docker run -d --name ventas_container --restart always diego1986/qa_ventas_diego_ormeno:latest
