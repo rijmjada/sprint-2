@@ -1,6 +1,8 @@
 ## Terraform | Generación IaC
 ![](https://gitlab.com/rijmjada/terraform-sprint-1/-/raw/main/example.gif?ref_type=heads)
-[link repo:](https://gitlab.com/rijmjada/terraform-sprint-1)
+
+#### Video explicativo:
+[![Ver video](https://i.ytimg.com/vi/5dYt5aaQbOk/hqdefault.jpg)](https://youtu.be/5dYt5aaQbOk)
 
 
 <br>
