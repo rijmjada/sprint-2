@@ -1,9 +1,3 @@
-![Video de YouTube](https://i.ytimg.com/vi/Cvz-9ccflKQ/hqdefault.jpg)
-
-[![Ver video](https://i.ytimg.com/vi/Cvz-9ccflKQ/hqdefault.jpg)](https://youtu.be/Cvz-9ccflKQ)
-
-
-
-## Conclusion
-
-Please refer to our [writing guidelines](https://do.co/style) for more detailed explanations on our style and formatting.
+<video width="320" height="240" controls>
+  <source src="https://www.youtube.com/watch?v=Cvz-9ccflKQ" type="video/mp4">
+</video>
