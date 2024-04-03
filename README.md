@@ -1,2 +1,2 @@
-[![Ver video](https://i.ytimg.com/vi/Cvz-9ccflKQ/hqdefault.jpg)](https://youtu.be/Cvz-9ccflKQ)
+[![Ver video](https://i.ytimg.com/vi/2oCog1TGM0w/hqdefault.jpg)](https://youtu.be/2oCog1TGM0w)
 
