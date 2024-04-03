@@ -10,7 +10,7 @@
 
 ## Terraform-docs | Generar documentación
 
-<img src="https://terraform-docs.io/logo-full-dark.png" alt="Terraform Docs Logo" height="120">c
+<img src="https://terraform-docs.io/logo-full-dark.png" alt="Terraform Docs Logo" height="120">
 
 <br>
 
