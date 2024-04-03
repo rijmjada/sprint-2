@@ -26,9 +26,10 @@ Ver más: <a href="https://terraform-docs.io/" target="_blank">terraform-docs.io
 
 ---
 
+## Shifting left |  Sonarcloud & Synk. 
+
 <img src="https://res.cloudinary.com/snyk/image/upload/v1627475502/wordpress-sync/learn-shift-left-benefits.png" alt="Terraform Docs Logo" height="350">
 
-## Shifting left |  Sonarcloud & Synk. 
 
 "Shifting left" en DevSecOps implica un cambio cultural y metodológico hacia la integración de la seguridad desde el principio del proceso de desarrollo de software. Esto puede incluir la adopción de herramientas de análisis estático y dinámico de código, pruebas de penetración automatizadas, revisión de diseño seguro, y la implementación de controles de seguridad como parte del proceso de integración continua y entrega continua (CI/CD). Al mover la seguridad hacia la izquierda en el ciclo de vida del desarrollo, las organizaciones pueden mejorar la calidad del software, reducir el riesgo de brechas de seguridad y acelerar el tiempo de comercialización al detectar y remediar problemas de seguridad de manera más temprana.
 
@@ -76,12 +77,14 @@ SonarCloud es un servicio de análisis de código basado en la nube diseñado pa
 
 Ver más: <a href="https://sonarcloud.io/" target="_blank">sonarcloud.io</a>
 
-<br>c
+<br>
+
+https://github.com/rijmjada/sprint-2/assets/72719844/bbb7ce99-a4dc-43dc-a1e6-55a445621ef7
+
 
 #### Ejemplo practico:
 [![Ver video](https://i.ytimg.com/vi/g3k_FgnY6Vo/hqdefault.jpg)](https://youtu.be/g3k_FgnY6Vo)
 
-https://github.com/rijmjada/sprint-2/assets/72719844/bbb7ce99-a4dc-43dc-a1e6-55a445621ef7
 
 
 
