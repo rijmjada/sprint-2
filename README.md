@@ -1,10 +1,26 @@
 ## SNYK |  Develop fast. Stay secure. 
 
-#### Que es Snyk?
+#### ¿Qué es Snyk?
 
 Snyk es una plataforma que le permite escanear, priorizar y corregir vulnerabilidades de seguridad en su código, dependencias de código abierto, imágenes de contenedores e infraestructura como configuraciones de código.
 
 Ver más: <a href="https://snyk.io/" target="_blank">snyk.io</a>
 
 https://github.com/rijmjada/sprint-2/assets/72719844/9aa40aa8-6620-48e3-a885-885c2f1f371f
+
+
+
+
+## SonarCloud |  clean code in your cloud workflow 
+
+#### ¿Qué es SónarCloud?
+
+SonarCloud es un servicio de análisis de código basado en la nube diseñado para detectar problemas de codificación en más de 30 idiomas, marcos y plataformas IaC . Al integrarse directamente con su canal de CI o una de nuestras plataformas DevOps compatibles , su código se compara con un amplio conjunto de reglas que cubren muchos atributos del código, como mantenibilidad, confiabilidad y problemas de seguridad en cada solicitud de fusión/extracción. Como elemento central de nuestra solución Sonar , SonarCloud completa el ciclo de análisis para ayudarlo a entregar código limpio que cumpla con estándares de alta calidad.
+
+Ver más: <a href="https://sonarcloud.io/" target="_blank">sonarcloud.io</a>
+
+
+https://github.com/rijmjada/sprint-2/assets/72719844/bbb7ce99-a4dc-43dc-a1e6-55a445621ef7
+
+
 
