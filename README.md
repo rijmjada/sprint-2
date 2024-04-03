@@ -26,12 +26,15 @@ Ver más: <a href="https://terraform-docs.io/" target="_blank">terraform-docs.io
 
 ---
 
-<img src="https://res.cloudinary.com/snyk/image/upload/v1627475502/wordpress-sync/learn-shift-left-benefits.png" alt="Terraform Docs Logo" height="250">
+<img src="https://res.cloudinary.com/snyk/image/upload/v1627475502/wordpress-sync/learn-shift-left-benefits.png" alt="Terraform Docs Logo" height="350">
 
 ## Shifting left |  Sonarcloud & Synk. 
 
 "Shifting left" en DevSecOps implica un cambio cultural y metodológico hacia la integración de la seguridad desde el principio del proceso de desarrollo de software. Esto puede incluir la adopción de herramientas de análisis estático y dinámico de código, pruebas de penetración automatizadas, revisión de diseño seguro, y la implementación de controles de seguridad como parte del proceso de integración continua y entrega continua (CI/CD). Al mover la seguridad hacia la izquierda en el ciclo de vida del desarrollo, las organizaciones pueden mejorar la calidad del software, reducir el riesgo de brechas de seguridad y acelerar el tiempo de comercialización al detectar y remediar problemas de seguridad de manera más temprana.
 
+<br>
+
+#### Video presentación:
 [![Ver video](https://i.ytimg.com/vi/uHOCFmOfSW0/hqdefault.jpg)](https://youtu.be/uHOCFmOfSW0)
 
 
