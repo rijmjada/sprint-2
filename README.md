@@ -13,6 +13,7 @@
 <img src="https://terraform-docs.io/logo-full-dark.png" alt="Terraform Docs Logo" height="120">
 
 <br>
+
 #### ¿Qué es Terraform-docs?
 
 Terraform Docs es una herramienta que permite generar documentación automáticamente a partir de los archivos de configuración de Terraform. Esto es útil para mantener documentación actualizada y coherente con el código, lo que facilita la comprensión y el mantenimiento de la infraestructura como código (IaC). Con Terraform Docs, puedes generar documentación detallada sobre los recursos, variables, módulos y otros aspectos de tus configuraciones de Terraform, lo que ayuda a colaboradores y equipos a comprender y trabajar con el código de manera más eficiente.
