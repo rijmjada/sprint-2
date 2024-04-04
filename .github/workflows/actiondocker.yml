@@ -1,4 +1,4 @@
-name: ci
+name: Generar imagen Docker
 
 on:
   workflow_dispatch:
