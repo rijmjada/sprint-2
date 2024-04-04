@@ -2,7 +2,7 @@ name: SSH EC2 | Descargar Imagen y correr contenedor
 
 on:
   workflow_run:
-    workflows: ["Generar imagen Docker"]
+    workflows: ["Build & Push Docker Image"]
     types:
       - completed
 
