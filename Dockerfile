@@ -1,13 +1,19 @@
-FROM alpine:latest
+FROM ubuntu:latest
 
-RUN apk --no-cache add nodejs npm
+# Actualizar e instalar las herramientas necesarias
+RUN apt-get update \
+    && apt-get install -y nodejs npm \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
+# Crear el directorio de trabajo
 WORKDIR /app
 
+# Copiar el contenido de la aplicación al directorio de trabajo
 COPY . .
 
-# Cambiar al directorio de trabajo antes de ejecutar los comandos npm
-RUN cd /app && npm install
+# Instalar las dependencias de la aplicación
+RUN npm install
 
-# Asegurar que npm start se ejecute en el directorio de trabajo correcto
-CMD ["sh", "-c", "cd /app && npm start"]
+# Ejecutar la aplicación directamente
+CMD ["node", "app.js"]
