@@ -6,6 +6,8 @@ WORKDIR /app
 
 COPY . .
 
-RUN npm install
+# Cambiar al directorio de trabajo antes de ejecutar los comandos npm
+RUN cd /app && npm install
 
-CMD ["npm", "start"]
+# Asegurar que npm start se ejecute en el directorio de trabajo correcto
+CMD ["sh", "-c", "cd /app && npm start"]
