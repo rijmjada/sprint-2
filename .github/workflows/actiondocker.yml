@@ -9,17 +9,15 @@ jobs:
   docker:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out code
-        uses: actions/checkout@v3
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Build & push Docker image
-        uses: mr-smithers-excellent/docker-build-push@v6
-        with:
-          image: diego1986/qa_ventas_diego_ormeno
-          tags: v1, latest
-          registry: registry-url.io
-          dockerfile: Dockerfile.ci
-          username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_PASSWORD }}
-
+      - name: Build Docker image
+        run: docker build -t diego1986/qa_ventas_diego_ormeno:latest .
+      
+      - name: Log in to Docker Hub
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+      
+      - name: Push Docker image to Docker Hub
+        run: docker push diego1986/qa_ventas_diego_ormeno:latest
 
