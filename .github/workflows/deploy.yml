@@ -1,0 +1,35 @@
+name: SSH EC2 | Descargar Imagen y correr contenedor
+
+on:
+  workflow_run:
+    workflows: ["Generar imagen Docker"]
+    types:
+      - completed
+
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.QA_PRUEBA_HOST }}
+          username: ${{ secrets.QA_PRUEBA_USER }}
+          key: ${{ secrets.QA_PRUEBA_SSH }}
+          script: |
+            sudo yum update -y
+            sudo yum install docker -y
+            sudo systemctl start docker
+            sudo systemctl enable docker
+            sudo rm -rf /opt/ventas-qa
+            sudo mkdir -p /opt/ventas-qa
+            cd /opt/ventas-qa
+            sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
+            
+            # Verificar si existe un contenedor con el mismo nombre y eliminarlo si es así
+            sudo docker rm -f ventas_container || true
+            
+            sudo docker pull diego1986/qa_ventas_diego_ormeno:latest
+            sudo docker run -d --name ventas_container -p 3000:3000 --restart always diego1986/qa_ventas_diego_ormeno:latest
