@@ -1,4 +1,4 @@
-name: remote_ssh_command_ventas
+name: SSH EC2 | Descargar Imagen y correr contenedor
 
 on:
   workflow_dispatch:
