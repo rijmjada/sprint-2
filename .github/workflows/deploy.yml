@@ -1,4 +1,4 @@
-name: SSH EC2 | Descargar Imagen y correr contenedor
+name: SSH EC2 | Run Image QA Enviroment
 
 on:
   workflow_run:
