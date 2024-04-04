@@ -1,7 +1,9 @@
 name: Generar imagen Docker
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   docker:
