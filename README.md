@@ -97,7 +97,7 @@ https://github.com/rijmjada/sprint-2/assets/72719844/bbb7ce99-a4dc-43dc-a1e6-55a
 
 ## Grafana | The open observability platform
 
-<img src="https://grafana.com/media/oss/grafana-oss-meta.png" alt="grafana" height="300">
+<img src="https://grafana.com/media/oss/grafana-oss-meta.png" alt="grafana">
 
 <br>
 
