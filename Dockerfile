@@ -6,10 +6,7 @@ RUN apt-get update \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Crear el directorio de trabajo
-WORKDIR /app
-
-# Copiar el contenido de la aplicación al directorio de trabajo
+# Copiar el contenido de la aplicación a la raíz del contenedor
 COPY . .
 
 # Instalar las dependencias de la aplicación
