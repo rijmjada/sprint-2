@@ -108,7 +108,7 @@ Grafana es un software libre basado en licencia de Apache 2.0, ​ que permite l
 Ver más: <a href="https://grafana.com/" target="_blank">grafana.com</a>
 
 
-<img src="https://trello.com/1/cards/660c5f66e9d196753b780156/attachments/660e9e2e1b52b5f2f9dc355e/previews/660e9e2e1b52b5f2f9dc35a0/download/grafana.png"  >
+<img src="https://trello.com/1/cards/660c5f66e9d196753b780156/attachments/660e9e2e1b52b5f2f9dc355e/previews/660e9e2e1b52b5f2f9dc35a0/download/grafana.png" alt="Terraform Docs Logo" height="120">
 
 
 
