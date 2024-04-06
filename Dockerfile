@@ -1,6 +1,4 @@
-FROM alpine:latest
-
-RUN apk --no-cache add nodejs npm
+FROM node:lts-alpine3.18
 
 WORKDIR /app
 
