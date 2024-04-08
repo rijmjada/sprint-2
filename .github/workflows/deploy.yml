@@ -15,9 +15,9 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.QA_PRUEBA_HOST }}
-          username: ${{ secrets.QA_PRUEBA_USER }}
-          key: ${{ secrets.QA_PRUEBA_SSH }}
+          host: ${{ secrets.HOST_VENTAS_QA }}
+          username: ${{ secrets.QA_VENTAS_USER }}
+          key: ${{ secrets.SSH_QA_VENTAS }}
           script: |
             sudo yum update -y
             sudo yum install docker -y
