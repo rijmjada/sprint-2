@@ -35,4 +35,4 @@ jobs:
 
       - name: Test application
         run: |
-          sudo cat http://${{ secrets.HOST_VENTAS_QA }}:3000
+          sudo cat ${{ secrets.HOST_VENTAS_QA }}
