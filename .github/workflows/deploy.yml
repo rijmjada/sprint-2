@@ -35,4 +35,4 @@ jobs:
 
       - name: Test application
         run: |
-          sudo curl http://${{ secrets.HOST_VENTAS_QA }}:3000
+          sudo cat http://${{ secrets.HOST_VENTAS_QA }}:3000
