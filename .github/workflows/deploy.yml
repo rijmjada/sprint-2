@@ -14,18 +14,14 @@ jobs:
       - name: executing remote ssh commands using password
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: ${{ secrets.HOST_VENTAS_QA }}
+          host: ${{ secrets.HOST_VENTAS_TEST }}
           username: ${{ secrets.QA_VENTAS_USER }}
-          key: ${{ secrets.SSH_QA_VENTAS }}
+          key: ${{ secrets.SSH_VENTAS_TEST }}
           script: |
             sudo yum update -y
             sudo yum install docker -y
             sudo systemctl start docker
             sudo systemctl enable docker
-            sudo rm -rf /opt/ventas-qa
-            sudo mkdir -p /opt/ventas-qa
-            cd /opt/ventas-qa
-            sudo git clone https://${{ secrets.GH_TOKEN }}@github.com/rijmjada/sprint-2 .
             
             # Verificar si existe un contenedor con el mismo nombre y eliminarlo si es así
             sudo docker rm -f ventas_container || true
