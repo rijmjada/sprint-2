@@ -15,6 +15,6 @@ jobs:
           username: ${{ secrets.QA_VENTAS_USER }}
           key: ${{ secrets.SSH_VENTAS_TEST }}
           script: |
-             sudo curl -v http://${{ secrets.HOST_VENTAS_TEST }}:3000 
+             sudo curl -v ${{ secrets.HOST_VENTAS_TEST }}:3000 
         
         
