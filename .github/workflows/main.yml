@@ -15,7 +15,7 @@ jobs:
           username: ${{ secrets.QA_VENTAS_USER }}
           key: ${{ secrets.SSH_VENTAS_TEST }}
           script: |
-             sudo curl -v http://${{ secrets.HOST_VENTAS_TEST }}:3000 2>&1 | awk '/out:/'
+             sudo curl -v http://${{ secrets.HOST_VENTAS_TEST }}:3000 2>&1 | grep 'out:'
         
         
         
