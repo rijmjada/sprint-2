@@ -31,6 +31,6 @@ jobs:
 
       - name: Execute curl command
         run: |
-          sudo curl -v ${{ secrets.HOST_VENTAS_TEST }}:3000
+          sudo curl ${{ secrets.HOST_VENTAS_TEST }}:3000
 
 
