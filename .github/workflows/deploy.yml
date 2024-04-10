@@ -22,10 +22,7 @@ jobs:
             sudo yum install docker -y
             sudo systemctl start docker
             sudo systemctl enable docker
-            
-            # Verificar si existe un contenedor con el mismo nombre y eliminarlo si es así
             sudo docker rm -f ventas_container || true
-            
             sudo docker pull diego1986/qa_ventas_diego_ormeno:latest
             sudo docker run -d --name ventas_container -p 3000:3000 --restart always diego1986/qa_ventas_diego_ormeno:latest
 
