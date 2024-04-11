@@ -22,7 +22,8 @@ jobs:
                 sudo yum install docker -y      # Instalar Docker
                 sudo systemctl start docker     # Inicializar Docker
                 sudo systemctl enable docker
-                sudo docker rm -f ventas_container || true   # Remover el contenedor si exite y luego ejecutar el run
+                sudo docker rm -f ventas_container || true   # Remover el contenedor si exite
+                sudo docker pull diego1986/qa_ventas_diego_ormeno:latest   # Descargar la imagen Docker y luego ejecutar el run
                 sudo docker run -d --name ventas_container -p 3000:3000 --restart always diego1986/qa_ventas_diego_ormeno:latest
 
       - name: Wait for service to start
