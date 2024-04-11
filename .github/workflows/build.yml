@@ -21,4 +21,4 @@ jobs:
         run: echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
       - name: Push Docker image to Docker Hub
-        run: docker push diego1986/qa_ventas_diego_ormeno:${{ github.event.inputs.tag }}
+        run: docker push diego1986/qa_ventas_diego_ormeno:latest
