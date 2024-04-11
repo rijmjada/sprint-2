@@ -16,8 +16,7 @@ jobs:
 
       - name: Build Docker image
         run: |
-          docker build -t diego1986/qa_ventas_diego_ormeno:latest .
-          docker tag diego1986/qa_ventas_diego_ormeno:${{ github.event.inputs.tag }} diego1986/qa_ventas_diego_ormeno:latest
+          docker build -t diego1986/qa_ventas_diego_ormeno:{{ github.event.inputs.tag }} .
 
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
