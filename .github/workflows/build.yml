@@ -8,7 +8,7 @@ on:
         description: 'Tag de la imagen Docker'
         required: true
 
-jobs:
+jobs: 
   docker:
     runs-on: ubuntu-latest
     steps:
