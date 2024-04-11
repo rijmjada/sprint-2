@@ -18,12 +18,13 @@ jobs:
           username: ${{ secrets.QA_VENTAS_USER }}
           key: ${{ secrets.SSH_VENTAS_TEST }}
           script: |
-            sudo yum update -y               # Actualizar
-            sudo yum install docker -y       # Instalar Docker
-            sudo systemctl start docker      # Iniciarlizar el servicio
-            sudo systemctl enable docker
-            sudo docker pull diego1986/qa_ventas_diego_ormeno:latest  # Descargar la imagen
-            sudo docker run -d --name ventas_container -p 3000:3000 --restart always diego1986/qa_ventas_diego_ormeno:latest # Ejecutar el contenedor
+               sudo yum update -y
+               sudo yum install docker -y
+               sudo systemctl start docker
+               sudo systemctl enable docker
+               sudo docker rm -f ventas_container || true
+               sudo docker pull diego1986/qa_ventas_diego_ormeno:latest
+               sudo docker run -d --name ventas_container -p 3000:3000 --restart always 
 
       - name: Wait for service to start
         run: sleep 30  # Espera 30 segundos antes de continuar
