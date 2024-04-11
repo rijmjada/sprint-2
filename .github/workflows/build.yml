@@ -15,10 +15,12 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Build Docker image
-        run: docker build -t diego1986/qa_ventas_diego_ormeno:${{ github.event.inputs.tag }} .
+        run: |
+          docker build -t diego1986/qa_ventas_diego_ormeno:${{ github.event.inputs.tag }} .
+          docker tag diego1986/qa_ventas_diego_ormeno:${{ github.event.inputs.tag }} diego1986/qa_ventas_diego_ormeno:latest
 
       - name: Login to Docker Hub
         run: echo "${{ secrets.DOCKER_PASS }}" | docker login -u "${{ secrets.DOCKER_USER }}" --password-stdin
 
       - name: Push Docker image to Docker Hub
-        run: docker push diego1986/qa_ventas_diego_ormeno:latest
+        run: docker push diego1986/qa_ventas_diego_ormeno:${{ github.event.inputs.tag }}
