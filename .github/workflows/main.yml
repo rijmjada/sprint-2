@@ -33,6 +33,6 @@ jobs:
           sarif_file: 'trivy-results.sarif'
 
       - name: Fail workflow if vulnerabilities found
-        if: steps.trivy_scan.outcome == 'success'  # Si el escaneo tiene éxito (sin vulnerabilidades), no se ejecutará
+        if: ${{ steps.trivy_scan.outputs.exit-code == '1' }}  # Si el escaneo falló (exit-code es '1'), la acción se ejecuta
         run: exit 1  # Fuerza el fallo de la ejecución si se encuentran vulnerabilidades
 
