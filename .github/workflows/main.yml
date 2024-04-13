@@ -21,15 +21,11 @@ jobs:
           image-ref: 'docker.io/library/neo4j:5-enterprise-ubi9'
           format: 'sarif'
           output: 'trivy-results.sarif'
-          exit-code: '0'
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
 
-      # Final step to check Trivy scan exit code
-      - name: Check Trivy scan exit code
-        run: echo "Trivy scan exit code:${{ steps.trivy_scan.outputs['exit-code'] }}"
 
 
