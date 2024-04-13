@@ -17,7 +17,7 @@ jobs:
         id: trivy_scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/library/neo4j:5.18.0-community-ubi9'
+          image-ref: 'docker.io/diego1986/qa_ventas_diego_ormeno'
           format: 'sarif'
           output: 'trivy-results.sarif'
           exit-code: '0'
