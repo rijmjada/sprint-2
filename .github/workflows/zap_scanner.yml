@@ -15,12 +15,12 @@ jobs:
 
       - name: Download and run Docker image
         run: |
-          sudo docker run -d -p 3000:3000 --restart always node:21.7.2
-          
+          sudo docker run -d --name=grafana -p 3000:3000 grafana/grafana
+         
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.10.0
         with:
-          target: 'http://localhost:7474'
+          target: 'http://localhost:3000'
           allow_issue_writing: true
           token: ${{ secrets.GB_TOKEN }}
 
