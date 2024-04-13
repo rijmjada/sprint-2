@@ -15,7 +15,7 @@ jobs:
 
       - name: Download and run Docker image
         run: |
-          sudo docker run -d --name=grafana -p 3000:3000 grafana/grafana
+          sudo docker run -d -p 3000:3000 diego1986/qa_ventas_diego_ormeno
          
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.10.0
