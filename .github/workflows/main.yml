@@ -29,4 +29,7 @@ jobs:
 
       # Final step to check Trivy scan exit code
       - name: Check Trivy scan exit code
-        run: echo "Trivy scan exit code:${{ steps.trivy_scan.outputs['exit-code'] }}"
+        run: |
+          set -x
+          echo "Trivy scan exit code:${{ steps.trivy_scan.outputs['exit-code'] }}"
+
