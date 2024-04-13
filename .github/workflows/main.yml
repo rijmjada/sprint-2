@@ -21,7 +21,7 @@ jobs:
           exit-code: '0' 
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL,HIGH'
+          severity: 'CRITICAL,HIGH,MEDIUM'
           format: 'sarif'
           output: 'trivy-results.sarif'
           trivy-config: trivy.yaml
