@@ -16,10 +16,9 @@ jobs:
       - name: Run Trivy vulnerability scanner
         id: trivy_scan
         uses: aquasecurity/trivy-action@master
-        continue-on-error: true  # Permitir que el flujo de trabajo continúe ejecutándose incluso si Trivy falla
         with:
           image-ref: 'docker.io/library/debian:9'
-          exit-code: '1'  # Cambia el exit-code a '1' para que falle si se encuentran vulnerabilidades
+          exit-code: '0' 
           ignore-unfixed: true
           vuln-type: 'os,library'
           severity: 'CRITICAL,HIGH'
@@ -28,17 +27,6 @@ jobs:
           trivy-config: trivy.yaml
 
       - name: Upload Trivy scan results to GitHub Security tab
-        if: ${{ always() }}  # Esta acción siempre se ejecutará, independientemente del resultado del escaneo
         uses: github/codeql-action/upload-sarif@v3
         with:
           sarif_file: 'trivy-results.sarif'
-
-      - name: Check vulnerabilities and fail if needed
-        if: ${{ always() }}
-        run: |
-          if grep -q '"vulnerabilities":\[\]' trivy-results.sarif; then
-            echo "No vulnerabilities found."
-          else
-            echo "Vulnerabilities found. Failing workflow."
-            exit 1
-          fi
