@@ -1,4 +1,4 @@
-name: Trivy Scanner Repository
+name: Trivy and ZAP Scanner Repository
 on:
   workflow_dispatch:
 
@@ -13,18 +13,14 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Run Trivy vulnerability scanner in repo mode
-        uses: aquasecurity/trivy-action@master
-        with:
-          scan-type: 'fs'
-          ignore-unfixed: true
-          format: 'table'
-          output: 'trivy-results.txt'
-          severity: 'CRITICAL,HIGH,MEDIUM'
+      - name: Download Docker image
+        run: |
+          sudo docker pull diego1986/qa_ventas_diego_ormeno:latest
+          sudo docker run -d --name ventas_container -p 3000:3000 --restart always diego1986/qa_ventas_diego_ormeno:latest
 
-      - name: Upload Trivy scan results as artifact
-        uses: actions/upload-artifact@v2
+      - name: Run ZAP vulnerability scanner
+        uses: zaproxy/action-full-scan@v0.8
         with:
-          name: trivy-results
-          path: trivy-results.txt
-
+          target: "http://localhost:3000"
+          policy: "Light"
+          report: "zap-report.html"
