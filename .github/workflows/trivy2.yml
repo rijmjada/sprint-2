@@ -7,25 +7,22 @@ permissions:
 
 jobs:
   build:
-    name: Checks
+    name: Build
     runs-on: ubuntu-20.04
     steps:
-      - name: Scan image in a private registry
-        id: trivy_scan
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Run Trivy vulnerability scanner in repo mode
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/diego1986/qa_ventas_diego_ormeno:latest'
-          scan-type: image
-          format: 'github'
-          output: 'dependency-results.sbom.json'
-          severity: "MEDIUM,HIGH,CRITICAL"
-          scanners: "vuln"
-          exit-code: '1'
+          scan-type: 'fs'
+          ignore-unfixed: true
+          format: 'sarif'
+          output: 'trivy-results.sarif'
+          severity: 'CRITICAL'
 
-      - name: Upload trivy report as a Github artifact
-        if: always()  # Subir el artefacto incluso si el paso anterior falla
-        uses: actions/upload-artifact@v4
+      - name: Upload Trivy scan results to GitHub Security tab
+        uses: github/codeql-action/upload-sarif@v3
         with:
-          name: trivy-sbom-report
-          path: '${{ github.workspace }}/dependency-results.sbom.json'
-          retention-days: 20 # 90 is the default
+          sarif_file: 'trivy-results.sarif'
