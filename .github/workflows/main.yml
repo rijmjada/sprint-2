@@ -26,6 +26,11 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
 
+      - name: Fail the pipeline if vulnerabilities were found
+        if: steps.trivy_scan.outputs.vulnerabilities > 0
+        run: exit 1
+
+
     
    
 
