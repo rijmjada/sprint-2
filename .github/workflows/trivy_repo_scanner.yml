@@ -1,4 +1,4 @@
-name: Trivy Scanner artifact
+name: Trivy Scanner Repository
 on:
   workflow_dispatch:
 
