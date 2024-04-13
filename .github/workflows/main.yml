@@ -30,7 +30,6 @@ jobs:
         if: steps.trivy_scan.outputs.vulnerabilities > 0
         run: exit 1
 
-
     
    
 
