@@ -38,8 +38,6 @@ jobs:
         if: ${{ steps.store_exit_code.outputs.trivy_exit_code == '0' }}
         run: exit 1
 
-
-    
     
    
 
