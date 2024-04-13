@@ -1,4 +1,4 @@
-name: Trivy and ZAP Scanner Repository
+name: Run ZAP vulnerability scanner
 on:
   workflow_dispatch:
 
