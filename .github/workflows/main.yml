@@ -17,24 +17,20 @@ jobs:
         id: trivy_scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/library/neo4j:5-ubi8'
+          image-ref: 'docker.io/library/neo4j:4.4.32'
           format: 'sarif'
           output: 'trivy-results.sarif'
-          exit-code: '0' # Este codigo esta invertido para continue con el upload sarif 0 es que fallo 
+          exit-code: '1' # Set exit code to 1 to make the step fail if vulnerabilities are found
 
       - name: Upload Trivy scan results to GitHub Security tab
         uses: github/codeql-action/upload-sarif@v3
-        if: always()
         with:
           sarif_file: 'trivy-results.sarif'
 
-      - name: Check exit code
-        run: |
-          if [ ${{ steps.trivy_scan.outputs.exit_code }} -eq 0 ]; then
-            echo "Trivy scan succeeded with exit code 0, failing the pipeline."
-            exit 1
-          fi
-
+      # Fail the pipeline if Trivy scan step fails (indicating vulnerabilities were found)
+      - name: Check Trivy scan status
+        if: ${{ failure() }}
+        run: echo "Trivy scan failed due to vulnerabilities found, failing the pipeline." && exit 1
 
     
     
