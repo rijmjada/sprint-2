@@ -17,7 +17,7 @@ jobs:
         id: trivy_scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/library/neo4j:4.4.32'
+          image-ref: 'docker.io/library/neo4j:5-ubi8'
           format: 'sarif'
           output: 'trivy-results.sarif'
           exit-code: '0' # Este codigo esta invertido para continue con el upload sarif 0 es que fallo 
