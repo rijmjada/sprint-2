@@ -15,7 +15,7 @@ jobs:
 
       - name: Download and run Docker image
         run: |
-          sudo docker run -d -p 3000:3000 --restart always neo4j:latest
+          sudo docker run -d -p 3000:3000 --restart always neo4j:5-ubi9
 
       - name: ZAP Scan
         uses: zaproxy/action-full-scan@v0.10.0
