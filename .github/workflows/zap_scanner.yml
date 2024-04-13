@@ -23,7 +23,7 @@ jobs:
         with:
           target: 'http://localhost:3000'
           allow_issue_writing: true
-          token: ${{ secrets.GH_TOKEN }}
+          token: ${{ secrets.GB_TOKEN }}
 
       - name: Upload ZAP Scan Report
         uses: actions/upload-artifact@v2
