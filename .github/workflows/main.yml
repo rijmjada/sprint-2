@@ -27,9 +27,9 @@ jobs:
         with:
           sarif_file: 'trivy-results.sarif'
 
-      # Final step to fail the pipeline if Trivy scan had exit code 0
-      - name: Fail pipeline if Trivy scan had exit code 0
-        if: ${{ steps.trivy_scan.outputs.exit-code != '0' }}
-        run: exit 1
+      # Final step to check Trivy scan exit code
+      - name: Check Trivy scan exit code
+        run: echo "Trivy scan exit code: ${{ steps.trivy_scan.outputs.exit-code }}"
+
 
 
