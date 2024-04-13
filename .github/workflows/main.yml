@@ -17,7 +17,7 @@ jobs:
         id: trivy_scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/library/neo4j:4.4.32'
+          image-ref: 'docker.io/library/neo4j:5.18.0-community-ubi9'
           format: 'sarif'
           output: 'trivy-results.sarif'
           exit-code: '1' # Set exit code to 1 to make the step fail if vulnerabilities are found
