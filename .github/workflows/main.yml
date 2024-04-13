@@ -17,7 +17,7 @@ jobs:
         id: trivy_scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'docker.io/library/debian:7'
+          image-ref: 'docker.io/library/debian:9'
           exit-code: '1'  # Cambia el exit-code a '1' para que falle si se encuentran vulnerabilidades
           ignore-unfixed: true
           vuln-type: 'os,library'
