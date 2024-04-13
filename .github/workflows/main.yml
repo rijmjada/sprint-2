@@ -33,10 +33,10 @@ jobs:
         id: store_exit_code
         run: echo "::set-output name=trivy_exit_code::${{ steps.trivy_scan.outputs.exit_code }}"
 
-# Final step to fail the pipeline if Trivy scan had exit code 0
-- name: Fail pipeline if Trivy scan had exit code 0
-  if: ${{ steps.store_exit_code.outputs.trivy_exit_code == '0' }}
-  run: exit 1
+      # Final step to fail the pipeline if Trivy scan had exit code 0
+      - name: Fail pipeline if Trivy scan had exit code 0
+        if: ${{ steps.store_exit_code.outputs.trivy_exit_code == '0' }}
+        run: exit 1
 
 
     
