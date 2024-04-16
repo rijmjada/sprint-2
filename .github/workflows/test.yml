@@ -19,7 +19,6 @@ jobs:
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
           script: |
             sudo wget https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh -O script.sh
-            sudo chmod +x script.sh
-            sudo script.sh
+            
           
 
