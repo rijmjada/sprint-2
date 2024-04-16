@@ -1,0 +1,32 @@
+name: test
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Copy script to EC2
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.HOST_AUDITORIA_TEST }}
+          username: ${{ secrets.USER_VENTAS }}
+          key: ${{ secrets.SSH_AUDITORIA_TEST }}
+          source: "script.sh" # Ruta local del script en tu repositorio
+          target: "/home/${{ secrets.USER_VENTAS }}/script.sh" # Ruta en la instancia de EC2
+
+      - name: Execute script on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST_AUDITORIA_TEST }}
+          username: ${{ secrets.USER_VENTAS }}
+          key: ${{ secrets.SSH_AUDITORIA_TEST }}
+          script: |
+            sudo chmod +x /home/${{ secrets.USER_VENTAS }}/script.sh
+            sudo /home/${{ secrets.USER_VENTAS }}/script.sh
+
