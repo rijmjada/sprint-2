@@ -2,10 +2,10 @@
 #!/bin/bash
 
 # Descargar el archivo node_exporter
-wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
+sudo wget https://github.com/prometheus/node_exporter/releases/download/v1.7.0/node_exporter-1.7.0.linux-amd64.tar.gz
 
 # Descomprimir el archivo
-tar -xvf node_exporter-1.7.0.linux-amd64.tar.gz
+sudo tar -xvf node_exporter-1.7.0.linux-amd64.tar.gz
 
 # Mover el binario a /usr/local/bin/
 sudo mv node_exporter-1.7.0.linux-amd64/node_exporter /usr/local/bin/
