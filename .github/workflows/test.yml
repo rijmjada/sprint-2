@@ -1,4 +1,4 @@
-name: test
+name: VENTAS-EC2
 
 on:
   workflow_dispatch:
@@ -8,14 +8,15 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: Copy script from GitHub to remote server
-        uses: appleboy/scp-action@master
+      - name: executing remote ssh commands using password
+        uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
           script: |
-            sudo yum install -y nodejs
+            sudo yum update -y
+            sudo yum install -y nodejs npm git
 
 
             
