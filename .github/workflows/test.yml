@@ -17,16 +17,9 @@ jobs:
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
-          source: "script.sh" # Ruta local del script en tu repositorio
-          target: "/home/${{ secrets.USER }}/script.sh" # Ruta en la instancia de EC2
-
-      - name: Execute script on EC2
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: ${{ secrets.HOST_AUDITORIA_TEST }}
-          username: ${{ secrets.USER }}
-          key: ${{ secrets.SSH_AUDITORIA_TEST }}
           script: |
+            sudo wget https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh -O script.sh
             sudo chmod +x script.sh
             sudo script.sh
+          
 
