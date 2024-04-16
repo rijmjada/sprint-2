@@ -14,7 +14,8 @@ jobs:
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
-          script: sudo yum install node
+          script: |
+            sudo yum install -y nodejs
 
 
             
