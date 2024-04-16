@@ -11,12 +11,11 @@ jobs:
       - name: Copy script from GitHub to remote server
         uses: appleboy/scp-action@master
         with:
-        
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
-          scritp: |
-            sudo wget https://${{ secrets.GH_TOKEN }}@raw.githubusercontent.com/alkemyTech/UMSA-DevOps-T4/main/script.sh -O script.sh
+          source: "https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh" # Ruta del script en GitHub
+          target: "/home/ec2-user/script.sh"
 
 
             
