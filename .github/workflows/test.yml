@@ -15,11 +15,18 @@ jobs:
         uses: appleboy/scp-action@master
         with:
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
-          username: ${{ secrets.USER_VENTAS }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.SSH_AUDITORIA_TEST }}
+          source: "script.sh" # Ruta local del script en tu repositorio
+          target: "/home/${{ secrets.USER }}/script.sh" # Ruta en la instancia de EC2
+
+      - name: Execute script on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.HOST_AUDITORIA_TEST }}
+          username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
           script: |
-            sudo yum update -y
-            sudo yum install -y nodejs npm git
-
-      
+            sudo chmod +x /home/${{ secrets.USER }}/script.sh
+            sudo /home/${{ secrets.USER }}/script.sh
 
