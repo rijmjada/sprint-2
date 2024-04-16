@@ -27,6 +27,6 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
           script: |
-            sudo chmod +x /home/${{ secrets.USER }}/script.sh
-            sudo /home/${{ secrets.USER }}/script.sh
+            sudo chmod +x script.sh
+            sudo script.sh
 
