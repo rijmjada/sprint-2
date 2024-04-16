@@ -17,8 +17,9 @@ jobs:
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
           username: ${{ secrets.USER_VENTAS }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
-          source: "script.sh" # Ruta local del script en tu repositorio
-          target: "/home/script.sh" # Ruta en la instancia de EC2
+          script: |
+            sudo yum update -y
+            sudo yum install -y nodejs npm git
 
       
 
