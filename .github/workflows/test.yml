@@ -14,8 +14,7 @@ jobs:
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
-          source: "https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh" # Ruta del script en GitHub
-          target: "/home/ec2-user/script.sh"
+          script: sudo yum install node
 
 
             
