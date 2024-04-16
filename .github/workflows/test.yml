@@ -15,7 +15,7 @@ jobs:
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
           source: "https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh" # Ruta del script en GitHub
-          target: "/home/${{ secrets.USER }}/script.sh" # Ruta en la instancia de EC2
+          target: "/home/script.sh" # Ruta en la instancia de EC2
 
 
             
