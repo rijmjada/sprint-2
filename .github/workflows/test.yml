@@ -8,14 +8,14 @@ jobs:
     name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: executing remote ssh commands using password
+      - name: Execute remote SSH command
         uses: appleboy/ssh-action@v1.0.3
         with:
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
-          scritp: |
-            sudo wget https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh -O script.sh
+          script: |
+            sudo wget https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh -O /home/ec2-user/script.sh
 
 
 
