@@ -14,8 +14,9 @@ jobs:
           host: ${{ secrets.HOST_AUDITORIA_TEST }}
           username: ${{ secrets.USER }}
           key: ${{ secrets.SSH_AUDITORIA_TEST }}
-          source: "https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh" # Ruta del script en GitHub
-          target: "/home/script.sh" # Ruta en la instancia de EC2
+          scritp: |
+            sudo wget https://raw.githubusercontent.com/rijmjada/sprint-2/main/script.sh -O script.sh
+
 
 
             
